@@ -12,7 +12,7 @@ export function VideoHero() {
   }
 
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section id="video-hero" className="relative h-screen w-full overflow-hidden">
       {/* Video de fondo */}
       <video
         autoPlay

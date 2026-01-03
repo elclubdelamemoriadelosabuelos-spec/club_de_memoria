@@ -3,6 +3,7 @@ import { About } from "@/components/about"
 import { Program } from "@/components/program"
 import { Method } from "@/components/method"
 import { Testimonials } from "@/components/testimonials"
+import { VideoTestimonials } from "@/components/video-testimonials"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
@@ -22,6 +23,7 @@ export default function Home() {
       <Gallery />
       <Method />
       <Testimonials />
+      <VideoTestimonials />
       <InstagramFeed />
       <Contact />
       <Footer />

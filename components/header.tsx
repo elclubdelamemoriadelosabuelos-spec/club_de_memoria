@@ -26,7 +26,7 @@ export function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <button
-              onClick={() => scrollToSection("inicio")}
+              onClick={() => scrollToSection("video-hero")}
               className="text-base font-medium text-foreground hover:text-primary transition-colors"
             >
               Inicio
@@ -68,7 +68,7 @@ export function Header() {
         {isOpen && (
           <nav className="md:hidden pt-4 pb-2 flex flex-col gap-3">
             <button
-              onClick={() => scrollToSection("inicio")}
+              onClick={() => scrollToSection("video-hero")}
               className="text-left text-base font-medium text-foreground hover:text-primary transition-colors py-2"
             >
               Inicio
