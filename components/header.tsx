@@ -23,7 +23,6 @@ export function Header() {
             <div className="text-2xl md:text-3xl font-bold text-primary">Club de la Memoria</div>
           </div>
 
-          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <button
               onClick={() => scrollToSection("video-hero")}
@@ -35,7 +34,7 @@ export function Header() {
               onClick={() => scrollToSection("nosotros")}
               className="text-base font-medium text-foreground hover:text-primary transition-colors"
             >
-              Nosotros
+              Conócenos
             </button>
             <button
               onClick={() => scrollToSection("programa")}
@@ -44,10 +43,10 @@ export function Header() {
               Programa
             </button>
             <button
-              onClick={() => scrollToSection("metodo")}
+              onClick={() => scrollToSection("equipo")}
               className="text-base font-medium text-foreground hover:text-primary transition-colors"
             >
-              Método 3E
+              Nuestro Equipo
             </button>
             <Button
               onClick={() => scrollToSection("contacto")}
@@ -64,7 +63,6 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <nav className="md:hidden pt-4 pb-2 flex flex-col gap-3">
             <button
@@ -77,7 +75,7 @@ export function Header() {
               onClick={() => scrollToSection("nosotros")}
               className="text-left text-base font-medium text-foreground hover:text-primary transition-colors py-2"
             >
-              Nosotros
+              Conócenos
             </button>
             <button
               onClick={() => scrollToSection("programa")}
@@ -86,10 +84,10 @@ export function Header() {
               Programa
             </button>
             <button
-              onClick={() => scrollToSection("metodo")}
+              onClick={() => scrollToSection("equipo")}
               className="text-left text-base font-medium text-foreground hover:text-primary transition-colors py-2"
             >
-              Método 3E
+              Nuestro Equipo
             </button>
             <Button
               onClick={() => scrollToSection("contacto")}

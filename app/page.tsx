@@ -11,6 +11,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import { VideoHero } from "@/components/video-hero"
 import { InstagramFeed } from "@/components/instagram-feed"
 import { Gallery } from "@/components/gallery"
+import { Team } from "@/components/team"
 
 export default function Home() {
   return (
@@ -20,11 +21,11 @@ export default function Home() {
       <Hero />
       <About />
       <Program />
-      <Gallery />
       <Method />
       <Testimonials />
       <VideoTestimonials />
       <InstagramFeed />
+      <Team />
       <Contact />
       <Footer />
       <WhatsAppButton />

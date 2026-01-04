@@ -21,14 +21,14 @@ export function Hero() {
           <div className="space-y-6 md:space-y-8">
             <div className="inline-block">
               <span className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm md:text-base font-semibold">
-                21 años de experiencia en Ecuador
+                21 años de experiencia en Quito
               </span>
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
               Espacio de vitalidad para <span className="text-primary">reconectar</span> con la vida
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
-              El primer club de adultos mayores activos del Ecuador. Un lugar donde son acompañados con actividades,
+              El primer club de adultos mayores de Quito. Un lugar donde son acompañados con actividades,
               amistad y alegría, promoviendo su bienestar y calidad de vida.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -46,7 +46,7 @@ export function Hero() {
                 asChild
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-base md:text-lg px-8 py-6 bg-transparent"
               >
-                <a href="https://wa.me/593999999999" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/593995671600" target="_blank" rel="noopener noreferrer">
                   WhatsApp
                 </a>
               </Button>

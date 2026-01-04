@@ -1,8 +1,5 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
 import { Clock, Utensils, Music, Smile, Calendar, PartyPopper } from "lucide-react"
 
 export function Program() {
@@ -55,7 +52,7 @@ export function Program() {
   ]
 
   return (
-    <section id="programa" className="py-16 md:py-24 bg-muted/30">
+    <section id="programa" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-balance">
@@ -67,98 +64,60 @@ export function Program() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
           {schedule.map((item, index) => (
-            <FlipCard key={index} item={item} />
+            <div
+              key={index}
+              className="group relative bg-card rounded-3xl border border-border overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:-translate-y-2"
+            >
+              {/* Image section */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={item.image || "/placeholder.svg"}
+                  alt={item.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                {/* Emoji badge */}
+                
+
+                {/* Time badge */}
+                <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-full flex gap-1.5 text-sm font-semibold shadow-lg flex-row items-center leading-7 tracking-normal">
+                  <Clock className="h-3.5 w-3.5" />
+                  {item.time}
+                </div>
+              </div>
+
+              {/* Content section */}
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+
+                <ul className="space-y-2 mb-4">
+                  {item.activities.map((activity, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-primary mt-0.5 font-bold">•</span>
+                      <span className="leading-relaxed">{activity}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="pt-4 border-t border-border">
+                  <p className="text-sm text-primary font-medium leading-relaxed flex items-start gap-2">
+                    <span className="shrink-0">👉</span>
+                    <span>{item.footer}</span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Accent line at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            </div>
           ))}
         </div>
       </div>
     </section>
-  )
-}
-
-function FlipCard({
-  item,
-}: {
-  item: {
-    icon: React.ElementType
-    time: string
-    title: string
-    emoji: string
-    activities: string[]
-    footer: string
-    image: string
-  }
-}) {
-  const [isFlipped, setIsFlipped] = useState(false)
-
-  return (
-    <div
-      className="relative h-72 md:h-80 cursor-pointer perspective-1000"
-      onClick={() => setIsFlipped(!isFlipped)}
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
-    >
-      <div
-        className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
-          isFlipped ? "rotate-y-180" : ""
-        }`}
-        style={{
-          transformStyle: "preserve-3d",
-          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
-        }}
-      >
-        {/* Cara frontal - Imagen */}
-        <div
-          className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-primary/20"
-          style={{ backfaceVisibility: "hidden" }}
-        >
-          <img src={item.image || "/placeholder.svg"} alt={item.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="text-3xl">{item.emoji}</div>
-              <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full">
-                <Clock className="h-4 w-4 text-white" />
-                <span className="text-sm font-semibold text-white">{item.time}</span>
-              </div>
-            </div>
-            <h3 className="text-2xl font-bold text-white">{item.title}</h3>
-            <p className="text-sm text-white/80 mt-1">Toca para más información</p>
-          </div>
-        </div>
-
-        {/* Cara trasera - Información */}
-        <div
-          className="absolute inset-0 rounded-2xl overflow-hidden border-2 border-primary bg-background"
-          style={{
-            backfaceVisibility: "hidden",
-            transform: "rotateY(180deg)",
-          }}
-        >
-          <div className="h-full flex flex-col justify-center p-6 md:p-8">
-            <div className="text-4xl mb-3">{item.emoji}</div>
-            <div className="flex items-center gap-2 mb-3">
-              <Clock className="h-4 w-4 text-primary" />
-              <span className="text-sm font-semibold text-primary">{item.time}</span>
-            </div>
-            <h3 className="text-xl font-bold mb-4 text-foreground">{item.title}</h3>
-
-            <ul className="space-y-2 mb-4">
-              {item.activities.map((activity, idx) => (
-                <li key={idx} className="flex items-start gap-2 text-muted-foreground">
-                  <span className="text-primary mt-1">•</span>
-                  <span className="leading-relaxed">{activity}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="text-sm text-primary/80 font-medium leading-relaxed mt-auto pt-4 border-t border-primary/20">
-              👉 {item.footer}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
   )
 }

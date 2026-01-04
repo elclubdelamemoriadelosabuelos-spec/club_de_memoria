@@ -150,8 +150,8 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg mb-1">Teléfono</h3>
-                    <p className="text-muted-foreground">+593 99 999 9999</p>
-                    <a href="tel:+593999999999" className="text-primary hover:underline text-sm font-medium">
+                    <p className="text-muted-foreground">+593 99 567 1600</p>
+                    <a href="tel:+593995671600" className="text-primary hover:underline text-sm font-medium">
                       Llamar ahora
                     </a>
                   </div>
