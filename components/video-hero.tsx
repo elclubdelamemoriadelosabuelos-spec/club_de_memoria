@@ -35,11 +35,7 @@ export function VideoHero() {
         </span>
 
         <p className="max-w-4xl text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight text-balance mb-6">
-          Donde la vida se celebra cada día
-        </p>
-
-        <p className="max-w-2xl text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed text-pretty mb-10">
-          El primer club de adultos mayores de Quito. Vitalidad, amistad y alegría en un solo lugar.
+          Un club donde la vida se celebra cada  día
         </p>
 
         <Button

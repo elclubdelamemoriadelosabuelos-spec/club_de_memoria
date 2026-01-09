@@ -23,8 +23,13 @@ export function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    // Create WhatsApp message with all form data
+    const message = `*Nueva consulta desde el sitio web*%0A%0A*Nombre:* ${formData.nombre}%0A*Email:* ${formData.email}%0A*Teléfono:* ${formData.telefono}%0A*Mensaje:* ${formData.mensaje || "Sin mensaje adicional"}`
+
+    const whatsappUrl = `https://wa.me/593995671600?text=${message}`
+
+    // Open WhatsApp in new tab
+    window.open(whatsappUrl, "_blank")
 
     setIsSubmitting(false)
     setSubmitStatus("success")
@@ -41,10 +46,10 @@ export function Contact() {
   }
 
   return (
-    <section id="contacto" className="py-16 md:py-24 bg-background">
+    <section id="contacto" className="py-12 md:py-16 bg-background">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-balance">
+        <div className="max-w-3xl mx-auto text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
             Agenda tu <span className="text-primary">visita</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
@@ -52,14 +57,14 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
           {/* Contact Form */}
           <Card className="border-2">
-            <CardHeader>
+            <CardHeader className="pb-4">
               <CardTitle className="text-2xl">Solicita información</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-2">
                 <div>
                   <label htmlFor="nombre" className="block text-sm font-semibold mb-2">
                     Nombre completo *
@@ -141,7 +146,7 @@ export function Contact() {
           </Card>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             <Card className="border-2">
               <CardContent className="p-6">
                 <div className="flex gap-4">

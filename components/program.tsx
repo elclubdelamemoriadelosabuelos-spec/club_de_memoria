@@ -6,36 +6,36 @@ export function Program() {
   const schedule = [
     {
       icon: Smile,
-      time: "10:00 - 12:00",
+      time: "10:00 - 11:30",
       title: "Mañanas activas y conectadas",
-      emoji: "🌅",
+      emoji: "",
       activities: ["Socialización guiada", "Entrenamiento de memoria", "Movimiento, baile y Brain Gym"],
       footer: "Comenzamos el día activando la mente y el cuerpo, siempre en grupo y acompañados.",
       image: "/elderly-morning-exercise-group-stretching.jpg",
     },
     {
       icon: Music,
-      time: "12:00 - 14:00",
+      time: "11:30 - 13:00",
       title: "Talleres con propósito",
-      emoji: "🎨",
+      emoji: "",
       activities: ["Arte y pintura", "Musicoterapia", "Talleres de memoria", "Actividades creativas"],
       footer: "Cada día una experiencia distinta que estimula la creatividad y la expresión emocional.",
       image: "/elderly-people-doing-art-therapy-painting-together.jpg",
     },
     {
       icon: Utensils,
-      time: "14:00 - 15:00",
+      time: "13:00 - 14:00",
       title: "Alimentación cuidada",
-      emoji: "🍽️",
+      emoji: "",
       activities: ["Breaks saludables", "Almuerzo completo y acompañado"],
       footer: "La alimentación también forma parte del bienestar integral.",
       image: "/seniors-enjoying-healthy-lunch-together-dining.jpg",
     },
     {
       icon: Calendar,
-      time: "15:00 - 16:00",
+      time: "14:00 - 16:00",
       title: "Tardes de disfrute y movimiento",
-      emoji: "♟️",
+      emoji: "",
       activities: ["Juegos de mesa y dinámicas grupales", "Gimnasia vital adaptada"],
       footer: "Terminamos el día activos, relajados y acompañados.",
       image: "/seniors-playing-board-games-memory-activities.jpg",
@@ -44,10 +44,19 @@ export function Program() {
       icon: PartyPopper,
       time: "Mensual",
       title: "Experiencias especiales",
-      emoji: "🌿",
+      emoji: "",
       activities: ["Celebraciones", "Salidas mensuales", "Fechas importantes"],
       footer: "Momentos memorables que fortalecen vínculos y crean recuerdos.",
       image: "/elderly-group-celebrating-birthday-party.jpg",
+    },
+     {
+      icon: PartyPopper,
+      time: "",
+      title: "Otros",
+      emoji: "",
+      activities: ["Seguimiento medico", "Transporte puerta a puerta"],
+      footer: "Cambiar este texto.",
+      image: "/elderly-group-celebrating-birthday-party.jpg", /* CAMBIAR ESTA IMAGEN */
     },
   ]
 
@@ -79,14 +88,13 @@ export function Program() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-                {/* Emoji badge */}
-                
-
                 {/* Time badge */}
+                { item.time &&(
                 <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-full flex gap-1.5 text-sm font-semibold shadow-lg flex-row items-center leading-7 tracking-normal">
                   <Clock className="h-3.5 w-3.5" />
                   {item.time}
                 </div>
+                )} 
               </div>
 
               {/* Content section */}
@@ -106,14 +114,13 @@ export function Program() {
 
                 <div className="pt-4 border-t border-border">
                   <p className="text-sm text-primary font-medium leading-relaxed flex items-start gap-2">
-                    <span className="shrink-0">👉</span>
+                    {/* <span className="shrink-0">👉</span> */}
                     <span>{item.footer}</span>
                   </p>
                 </div>
               </div>
-
-              {/* Accent line at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+            {/* Accent line at bottom 
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />*/}
             </div>
           ))}
         </div>

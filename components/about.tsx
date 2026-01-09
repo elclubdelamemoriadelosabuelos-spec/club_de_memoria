@@ -71,8 +71,7 @@ export function About() {
             ?
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
-            Un espacio de vitalidad donde los adultos mayores reconectan con actividades, amistad, familiaridad y
-            alegría. Aquí no vienen a pasar el tiempo, <strong className="text-foreground">vienen a vivirlo</strong>.
+           Un entorno lleno de energía y cercanía, donde los adultos mayores fortalecen vínculos, redescubren intereses y comparten momentos significativos.
           </p>
         </div>
 
@@ -195,7 +194,12 @@ export function About() {
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-accent/10 pointer-events-none" />
             </div>
           </div>
-        </div>
+          </div>
+            <div className="mt-16 max-w-4xl mx-auto text-center">
+                <p className="text-secondary text-2xl md:text-4xl font-semibold text-primary mb-4">
+                  "Aquí no vienen a pasar el tiempo, vienen a vivirlo"
+                </p>
+             </div>
       </div>
     </section>
   )
