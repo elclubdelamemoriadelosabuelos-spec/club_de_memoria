@@ -19,9 +19,9 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://clubdelamemoria.com"),
-  title: "Club de la Memoria | El Mejor Club para Adultos Mayores 60 en Quito - Desde 2004",
+  title: "Club de la Memoria | El Mejor Club para Adultos Mayores en Quito - Desde 2004",
   description:
-    "Club de la Memoria: el primer y mejor club de adultos mayores 60 en Quito desde 2004. Bienestar integral, actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
+    "Club de la Memoria: el primer y mejor club de adultos mayores en Quito desde 2004. Bienestar integral, actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
   keywords: [
     "club de la memoria",
     "club de la memoria quito",
