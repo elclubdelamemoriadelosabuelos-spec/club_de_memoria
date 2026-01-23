@@ -2,14 +2,16 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Club de la Memoria - Espacio de Bienestar para Adultos Mayores",
-    short_name: "Club de la Memoria",
+    name: "Club de la Memoria - Mejor Club para Adultos Mayores 60+ en Quito",
+    short_name: "Club Memoria",
     description:
-      "El primer club de adultos mayores activos del Ecuador desde 2004. Programa integral con estimulación cognitiva, expresión emocional y encuentro social.",
+      "El primer y mejor club de adultos mayores 60+ en Quito desde 2004. Bienestar integral con actividades físicas, cognitivas y creativas. Alternativa a Club Mitra.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#2EB9BE",
+    categories: ["health", "lifestyle", "social"],
+    lang: "es-EC",
     icons: [
       {
         src: "/clubmemoria/android-icon-36x36.png",

@@ -19,12 +19,13 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://clubdelamemoria.com"),
-  title: "Club de la Memoria | Actividades para Adultos Mayores en Quito - Bienestar Integral",
+  title: "Club de la Memoria | El Mejor Club para Adultos Mayores 60 en Quito - Desde 2004",
   description:
-    "Club de la Memoria: el primer club de adultos mayores en Quito desde 2004. Ofrecemos bienestar integral con actividades para la memoria, reconexión social y programa completo de estimulación cognitiva. Centro especializado en actividades para adultos mayores.",
+    "Club de la Memoria: el primer y mejor club de adultos mayores 60 en Quito desde 2004. Bienestar integral, actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
   keywords: [
     "club de la memoria",
     "club de la memoria quito",
+    "club adultos mayores quito",
     "actividades para adultos mayores",
     "actividades para adultos mayores quito",
     "adultos mayores quito",
@@ -37,6 +38,17 @@ export const metadata: Metadata = {
     "actividades tercera edad",
     "programa adultos mayores",
     "cuidado integral adultos mayores",
+    "mejor club adultos mayores quito",
+    "club envejecimiento activo quito",
+    "atención centrada en la persona quito",
+    "actividades físicas adultos mayores",
+    "actividades cognitivas adultos mayores",
+    "actividades creativas adultos mayores",
+    "club día adultos mayores quito",
+    "centro bienestar adultos mayores quito",
+    "mejor club tercera edad quito",
+    "club adultos mayores cumbayá",
+    "club adultos mayores valle de los chillos",
   ],
   authors: [{ name: "Club de la Memoria" }],
   creator: "Club de la Memoria",
@@ -57,23 +69,23 @@ export const metadata: Metadata = {
     locale: "es_EC",
     url: "https://clubdelamemoria.com",
     siteName: "Club de la Memoria",
-    title: "Club de la Memoria | Actividades para Adultos Mayores Quito - Bienestar Integral",
+    title: "Club de la Memoria | El Mejor Club para Adultos Mayores en Quito - Desde 2004",
     description:
-      "Club de la Memoria ofrece bienestar integral para adultos mayores en Quito. Actividades para la memoria, reconexión social y programa completo desde 2004.",
+      "El primer club de adultos mayores en Quito desde 2004. Bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Club de la Memoria - Adultos mayores disfrutando actividades",
+        alt: "Club de la Memoria - Adultos mayoredisfrutando actividades en Quito",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Club de la Memoria | Actividades para Adultos Mayores Quito",
+    title: "Club de la Memoria | Mejor Club Adultos Mayores Quito",
     description:
-      "Bienestar integral y actividades para la memoria. Reconexión social y vitalidad para adultos mayores en Quito desde 2004.",
+      "Bienestar integral para adultos mayores en Quito. Actividades físicas, cognitivas y creativas desde 2004.",
     images: ["/og-image.jpg"],
     creator: "@clubdelamemoria",
   },
@@ -131,31 +143,209 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
+              "@type": "LocalBusiness",
+              "@id": "https://clubdelamemoria.com",
               name: "Club de la Memoria",
+              alternateName: "Club de la Memoria Quito",
               description:
-                "Club de adultos mayores en Quito que ofrece bienestar integral, actividades para la memoria y reconexión social desde 2004",
+                "El primer club de adultos mayores en Quito desde 2004. Ofrecemos bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
               url: "https://clubdelamemoria.com",
               logo: "https://clubdelamemoria.com/logo_club_memoria.png",
+              image: "https://clubdelamemoria.com/logo_club_memoria.png",
               foundingDate: "2004",
+              priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
+                streetAddress: "José Prta N39-164",
                 addressLocality: "Quito",
+                addressRegion: "Pichincha",
+                postalCode: "170124",
                 addressCountry: "EC",
               },
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+593-99-567-1600",
-                contactType: "customer service",
-                availableLanguage: ["es"],
+              geo: {
+                "@type": "GeoCoordinates",
+                latitude: "-0.1807",
+                longitude: "-78.4678",
+              },
+              telephone: "+593963596624",
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+593963596624",
+                  contactType: "customer service",
+                  availableLanguage: ["es", "Spanish"],
+                  areaServed: "EC",
+                },
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+593963596624",
+                  contactType: "sales",
+                  availableLanguage: ["es", "Spanish"],
+                },
+              ],
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                  opens: "10:00",
+                  closes: "16:00",
+                },
+              ],
+              areaServed: {
+                "@type": "City",
+                name: "Quito",
+                "@id": "https://www.wikidata.org/wiki/Q2900",
               },
               sameAs: [
                 "https://www.instagram.com/clubdelamemoria",
                 "https://www.facebook.com/profile.php?id=61565484248833",
                 "https://www.tiktok.com/@clubdelamemoriauio",
               ],
-              keywords:
-                "club de la memoria, actividades para adultos mayores, bienestar integral, reconexión social, adultos mayores quito",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5",
+                reviewCount: "50",
+                bestRating: "5",
+                worstRating: "1",
+              },
+              hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "Servicios Club de la Memoria",
+                itemListElement: [
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Programa de Día Completo",
+                      description: "Programa integral de 10:00 a 16:00 con actividades físicas, cognitivas y creativas",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Mañanas Activas y Conectadas",
+                      description: "Socialización guiada, entrenamiento de memoria y movimiento",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Talleres Creativos",
+                      description: "Arte, música, manualidades y expresión creativa",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Alimentación Cuidada",
+                      description: "Almuerzo completo y breaks saludables",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Tardes de Disfrute",
+                      description: "Juegos de mesa, gimnasia vital adaptada y dinámicas grupales",
+                    },
+                  },
+                ],
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "¿Qué es el Club de la Memoria?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "El Club de la Memoria es el primer club de adultos mayores en Quito, Ecuador, desde 2004. Ofrecemos un programa integral de bienestar con actividades físicas, cognitivas y creativas diseñadas para mejorar la calidad de vida de los adultos mayores.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Qué actividades ofrece el Club de la Memoria?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Ofrecemos un programa completo que incluye: mañanas activas con socialización y entrenamiento de memoria, talleres creativos (arte, música, manualidades), alimentación cuidada con almuerzo completo, y tardes de disfrute con juegos y gimnasia adaptada.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Cuál es el horario del Club de la Memoria?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "El programa funciona de lunes a viernes de 10:00 a 16:00 horas, ofreciendo actividades continuas durante toda la jornada.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Dónde está ubicado el Club de la Memoria?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Estamos ubicados en José Prta N39-164, Quito, Ecuador. Ofrecemos un espacio cálido y seguro para nuestros socios.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "¿Cómo me contacto con el Club de la Memoria?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Puedes contactarnos al teléfono +593 96 359 6624, por WhatsApp al mismo número, o visitar nuestra página web para más información.",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Inicio",
+                  item: "https://clubdelamemoria.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Conócenos",
+                  item: "https://clubdelamemoria.com#nosotros",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Programa",
+                  item: "https://clubdelamemoria.com#programa",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
+                  name: "Nuestro Equipo",
+                  item: "https://clubdelamemoria.com#equipo",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 5,
+                  name: "Contacto",
+                  item: "https://clubdelamemoria.com#contacto",
+                },
+              ],
             }),
           }}
         />
@@ -163,7 +353,6 @@ export default function RootLayout({
       <body className={`${lato.variable} ${openSans.variable} font-sans antialiased`} style={{ fontFamily: 'var(--font-lato), var(--font-open-sans), system-ui, sans-serif' }}>
         {children}
         <Analytics />
-        {/* Elfsight Platform Script - Cargado solo una vez al día */}
         <ElfsightScript />
       </body>
     </html>
