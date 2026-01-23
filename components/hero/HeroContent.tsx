@@ -10,7 +10,7 @@ export function HeroContent({ className }: HeroProps) {
   return (
     <section
       id={SECTIONS.inicio}
-      className={`pt-24 md:pt-32 pb-16 md:pb-24 bg-linear-to-br from-primary/5 via-background to-accent/5 ${className ?? ""}`}
+      className={`pt-12 md:pt-32 pb-16 md:pb-24 bg-linear-to-br from-primary/5 via-background to-accent/5 ${className ?? ""}`}
     >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
