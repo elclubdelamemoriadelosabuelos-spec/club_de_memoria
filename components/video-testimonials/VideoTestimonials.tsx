@@ -119,10 +119,7 @@ export function VideoTestimonials({ className }: VideoTestimonialsProps) {
                     loop={false}
                   >
                     {loadedVideos.has(index) && !isSlowConnection && (
-                      <>
-                        <source src={video.webm} type="video/webm" />
-                        <source src={video.mp4} type="video/mp4" />
-                      </>
+                      <source src={video.webm} type="video/webm" />
                     )}
                   </video>
 

@@ -54,10 +54,7 @@ export function VideoHero({ className }: VideoHeroProps) {
           aria-label="Video de presentación del Club de la Memoria"
         >
           {shouldLoad && !isSlowConnection && (
-            <>
-              <source src={VIDEO_CONFIG.webm} type="video/webm" />
-              <source src={VIDEO_CONFIG.mp4} type="video/mp4" />
-            </>
+            <source src={VIDEO_CONFIG.webm} type="video/webm" />
           )}
         </video>
 

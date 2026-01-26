@@ -4,7 +4,6 @@
 
 export interface TestimonialVideo {
   webm: string
-  mp4: string // Fallback
   name: string
   quote: string
 }

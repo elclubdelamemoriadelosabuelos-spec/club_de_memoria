@@ -100,7 +100,6 @@ export const HERO = {
 export const VIDEO = {
   hero: {
     webm: "/video-hero.webm",
-    mp4: "/video-hero.mp4", // Fallback
   },
 }
 
