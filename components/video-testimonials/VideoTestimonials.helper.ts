@@ -5,12 +5,14 @@ import type { TestimonialVideo, VideoRefs, MutedState } from "./VideoTestimonial
  */
 export const TESTIMONIAL_VIDEOS: TestimonialVideo[] = [
   {
-    src: "/testimonials/testimonio_1.MP4",
+    webm: "/testimonials/testimonio_1.webm",
+    mp4: "/testimonials/testimonio_1.MP4", // Fallback
     name: "Testimonio familiar",
     quote: "El Club de la Memoria ha transformado la vida de nuestra familia. Ver a mi madre tan feliz y activa no tiene precio.",
   },
   {
-    src: "/testimonials/testimonio_2.MP4",
+    webm: "/testimonials/testimonio_2.webm",
+    mp4: "/testimonials/testimonio_2.MP4", // Fallback
     name: "Testimonio familiar",
     quote: "La dedicación y el cariño del equipo se nota en cada detalle. Recomendamos el Club con todo el corazón.",
   },

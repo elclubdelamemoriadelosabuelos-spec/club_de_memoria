@@ -2,6 +2,7 @@ import type { HeroProps } from "./Hero.types"
 import { HERO_STATS, HERO_IMAGE } from "./Hero.helper"
 import { HERO, SECTIONS } from "@/lib/constants"
 import { HeroActions } from "./HeroActions"
+import Image from "next/image"
 
 /**
  * Contenido estático del Hero - Renderizado en servidor
@@ -31,12 +32,15 @@ export function HeroContent({ className }: HeroProps) {
 
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
-              <img
+              <Image
                 src={HERO_IMAGE}
                 alt="Adultos mayores felices participando en actividades del Club de la Memoria"
+                width={1200}
+                height={800}
                 className="w-full h-auto object-cover"
-                loading="eager"
-                fetchPriority="high"
+                priority
+                quality={85}
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
             <div className="absolute -bottom-8 -left-8 bg-secondary text-secondary-foreground rounded-2xl p-6 shadow-xl max-w-[350px]">

@@ -20,10 +20,21 @@ export function VideoHero({ className }: VideoHeroProps) {
       video.load()
     }
 
-    const playPromise = video.play()
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-      })
+    const handleCanPlay = () => {
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+        })
+      }
+    }
+    if (video.readyState >= 2) {
+      handleCanPlay()
+    } else {
+      video.addEventListener("canplay", handleCanPlay, { once: true })
+    }
+
+    return () => {
+      video.removeEventListener("canplay", handleCanPlay)
     }
   }, [shouldLoad, isSlowConnection, videoRef])
 
@@ -36,15 +47,17 @@ export function VideoHero({ className }: VideoHeroProps) {
           muted
           loop
           playsInline
-          preload={shouldLoad && !isSlowConnection ? "auto" : "none"}
+          preload={shouldLoad && !isSlowConnection ? "metadata" : "none"}
           className="absolute inset-0 w-full h-full object-cover z-0"
-          {...(VIDEO_CONFIG.poster && { poster: VIDEO_CONFIG.poster })}
           disablePictureInPicture
           disableRemotePlayback
           aria-label="Video de presentación del Club de la Memoria"
         >
           {shouldLoad && !isSlowConnection && (
-            <source src={VIDEO_CONFIG.src} type="video/mp4" />
+            <>
+              <source src={VIDEO_CONFIG.webm} type="video/webm" />
+              <source src={VIDEO_CONFIG.mp4} type="video/mp4" />
+            </>
           )}
         </video>
 

@@ -111,7 +111,7 @@ export function VideoTestimonials({ className }: VideoTestimonialsProps) {
                 <div className="relative aspect-[9/16] md:aspect-[9/14] rounded-2xl overflow-hidden bg-black">
                   <video
                     ref={(el) => { videoRefs.current[index] = el }}
-                    preload={isSlowConnection ? "none" : loadedVideos.has(index) ? "auto" : "none"}
+                    preload={isSlowConnection ? "none" : loadedVideos.has(index) ? "metadata" : "none"}
                     className="w-full h-full object-cover"
                     playsInline
                     muted={mutedVideos[index]}
@@ -119,7 +119,10 @@ export function VideoTestimonials({ className }: VideoTestimonialsProps) {
                     loop={false}
                   >
                     {loadedVideos.has(index) && !isSlowConnection && (
-                      <source src={video.src} type="video/mp4" />
+                      <>
+                        <source src={video.webm} type="video/webm" />
+                        <source src={video.mp4} type="video/mp4" />
+                      </>
                     )}
                   </video>
 

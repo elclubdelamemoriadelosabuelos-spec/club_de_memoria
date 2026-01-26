@@ -90,7 +90,7 @@ export const HERO = {
     value: "21+",
     label: "Años creando bienestar",
   },
-  image: "/hero_image.jpeg",
+  image: "/hero_image.webp",
 }
 
 // ============================================================================
@@ -99,7 +99,8 @@ export const HERO = {
 
 export const VIDEO = {
   hero: {
-    src: "/video-hero.mp4",
+    webm: "/video-hero.webm",
+    mp4: "/video-hero.mp4", // Fallback
   },
 }
 

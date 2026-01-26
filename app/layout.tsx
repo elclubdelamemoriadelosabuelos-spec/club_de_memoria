@@ -19,9 +19,9 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://clubdelamemoria.com"),
-  title: "Club de la Memoria | El Mejor Club para Adultos Mayores en Quito - Desde 2004",
+  title: "Club de la Memoria | Adultos Mayores Quito | Desde 2004",
   description:
-    "Club de la Memoria: el primer y mejor club de adultos mayores en Quito desde 2004. Bienestar integral, actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
+    "Primer club de adultos mayores en Quito desde 2004. Bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo.",
   keywords: [
     "club de la memoria",
     "club de la memoria quito",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
     locale: "es_EC",
     url: "https://clubdelamemoria.com",
     siteName: "Club de la Memoria",
-    title: "Club de la Memoria | El Mejor Club para Adultos Mayores en Quito - Desde 2004",
+    title: "Club de la Memoria | Adultos Mayores Quito | Desde 2004",
     description:
-      "El primer club de adultos mayores en Quito desde 2004. Bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
+      "Primer club de adultos mayores en Quito desde 2004. Bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo.",
     images: [
       {
         url: "/og-image.jpg",
@@ -83,9 +83,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Club de la Memoria | Mejor Club Adultos Mayores Quito",
+    title: "Club de la Memoria | Adultos Mayores Quito",
     description:
-      "Bienestar integral para adultos mayores en Quito. Actividades físicas, cognitivas y creativas desde 2004.",
+      "Primer club de adultos mayores en Quito desde 2004. Actividades físicas, cognitivas y creativas.",
     images: ["/og-image.jpg"],
     creator: "@clubdelamemoria",
   },

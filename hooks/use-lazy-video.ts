@@ -111,3 +111,19 @@ export function useSlowConnection() {
 
   return isSlow
 }
+
+/**
+ * Hook para precargar videos de forma inteligente
+ * Solo precarga metadatos cuando el video está cerca del viewport
+ */
+export function useVideoPreload(videoRef: React.RefObject<HTMLVideoElement>, shouldPreload: boolean) {
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !shouldPreload) return
+
+    // Precargar solo metadatos para mejor rendimiento
+    if (video.readyState === 0) {
+      video.load()
+    }
+  }, [videoRef, shouldPreload])
+}

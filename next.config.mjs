@@ -22,6 +22,9 @@ const nextConfig = {
   },
   compress: true,
   reactStrictMode: true,
+  // Optimizaciones para videos
+  poweredByHeader: false,
+  generateEtags: true,
   async redirects() {
     return [
       {

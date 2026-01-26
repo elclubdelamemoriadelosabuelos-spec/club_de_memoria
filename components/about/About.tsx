@@ -33,10 +33,17 @@ export function About({ className }: AboutProps) {
     // Solo preparar el source, pero no cargar hasta que el usuario haga click
     // Esto optimiza el ancho de banda
     if (video.children.length === 0) {
-      const source = document.createElement('source')
-      source.src = '/about_video.mp4'
-      source.type = 'video/mp4'
-      video.appendChild(source)
+      // WebM primero (mejor compresión)
+      const sourceWebm = document.createElement('source')
+      sourceWebm.src = '/about_video.webm'
+      sourceWebm.type = 'video/webm'
+      video.appendChild(sourceWebm)
+      
+      // MP4 como fallback
+      const sourceMp4 = document.createElement('source')
+      sourceMp4.src = '/about_video.mp4'
+      sourceMp4.type = 'video/mp4'
+      video.appendChild(sourceMp4)
     }
   }, [shouldLoad, videoLoaded, isSlowConnection])
 
@@ -47,10 +54,17 @@ export function About({ className }: AboutProps) {
     // Si no está cargado y no es conexión lenta, cargar ahora
     if (!videoLoaded && !isSlowConnection) {
       if (video.children.length === 0) {
-        const source = document.createElement('source')
-        source.src = '/about_video.mp4'
-        source.type = 'video/mp4'
-        video.appendChild(source)
+        // WebM primero (mejor compresión)
+        const sourceWebm = document.createElement('source')
+        sourceWebm.src = '/about_video.webm'
+        sourceWebm.type = 'video/webm'
+        video.appendChild(sourceWebm)
+        
+        // MP4 como fallback
+        const sourceMp4 = document.createElement('source')
+        sourceMp4.src = '/about_video.mp4'
+        sourceMp4.type = 'video/mp4'
+        video.appendChild(sourceMp4)
       }
       video.load()
       setVideoLoaded(true)
@@ -180,7 +194,10 @@ export function About({ className }: AboutProps) {
                 aria-label="Video sobre el Club de la Memoria"
               >
                 {shouldLoad && !isSlowConnection && videoLoaded && (
-                  <source src="/about_video.mp4" type="video/mp4" />
+                  <>
+                    <source src="/about_video.webm" type="video/webm" />
+                    <source src="/about_video.mp4" type="video/mp4" />
+                  </>
                 )}
               </video>
               
