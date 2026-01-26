@@ -39,6 +39,7 @@ export function Footer({ className }: FooterProps) {
             <h4 className="font-bold text-lg mb-4">Contacto</h4>
             <div className="space-y-2 text-muted-foreground">
               <p>{CONTACT_INFO.phone}</p>
+              <p>{CONTACT_INFO.phone2}</p>
               <p>{CONTACT_INFO.location}</p>
             </div>
           </div>

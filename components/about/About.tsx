@@ -209,7 +209,7 @@ export function About({ className }: AboutProps) {
         </div>
 
         <div className="mt-16 max-w-4xl mx-auto text-center">
-          <p className="text-secondary text-2xl md:text-4xl font-semibold italic font-serif mb-4">
+          <p className="text-secondary text-2xl md:text-4xl font-semibold italic font-serif mb-4 whitespace-pre-line">
             "{ABOUT_QUOTE}"
           </p>
         </div>

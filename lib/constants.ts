@@ -22,6 +22,8 @@ export const COMPANY = {
 export const CONTACT = {
   phone: "+593963596624",
   phoneDisplay: "+593 96 359 6624",
+  phone2: "+593995671600",
+  phone2Display: "+593 99 567 1600",
   whatsapp: {
     number: "+593963596624",
     url: "https://wa.me/+593963596624",

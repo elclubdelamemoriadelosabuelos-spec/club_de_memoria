@@ -39,7 +39,7 @@ export const FEATURES: Feature[] = [
 /**
  * Quote for the about section
  */
-export const ABOUT_QUOTE = "Aquí no vienen a pasar el tiempo, vienen a vivirlo"
+export const ABOUT_QUOTE = "Aquí no vienen a pasar el tiempo,\nvienen a vivirlo"
 
 /**
  * Navigate to next slide

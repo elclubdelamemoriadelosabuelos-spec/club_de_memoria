@@ -10,14 +10,14 @@ export const PILLARS: Pillar[] = [
     icon: Dumbbell,
     title: "Física",
     color: pillarBgClasses.fisica,
-    description: "Actividad física adaptada para fortalecer el cuerpo, mejorar la movilidad y promover la autonomía.",
+    description: "Actividad física adaptada para fortalecer el cuerpo, mejorar la movilidad, evitar caídas y promover la autonomía.",
   },
   {
     icon: Heart,
     title: "Emocional",
     color: pillarBgClasses.emocional,
     description:
-      "Acompañamiento emocional que fomenta la autoestima, la expresión de sentimientos y el bienestar afectivo.",
+      "Acompañamiento emocional que fomenta el autoestima, la expresión de sentimientos y el bienestar afectivo.",
   },
   {
     icon: Apple,

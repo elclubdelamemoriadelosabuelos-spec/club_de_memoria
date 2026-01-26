@@ -15,6 +15,7 @@ export const COMPANY_INFO = {
  */
 export const CONTACT_INFO = {
   phone: CONTACT.phoneDisplay,
+  phone2: CONTACT.phone2Display,
   location: COMPANY.location,
 }
 

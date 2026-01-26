@@ -12,7 +12,7 @@ export const SCHEDULE: ScheduleItem[] = [
     activities: [
       {
         name: "Socialización guiada",
-        description: "Espacios de encuentro grupal donde se promueve la conversación, la escucha activa y el vínculo social, fortaleciendo la autoestima y el sentido de pertenencia."
+        description: "Espacios de encuentro grupal donde se promueve la conversación, la escucha activa y el vínculo social, fortaleciendo el autoestima y el sentido de pertenencia."
       },
       {
         name: "Entrenamiento de memoria",
@@ -161,12 +161,12 @@ export const SCHEDULE: ScheduleItem[] = [
     title: "Adicionales",
     activities: [
       {
-        name: "Seguimiento de enfermería",
-        description: "Incluido para todos nuestros socios. Nuestro equipo de enfermería realiza un acompañamiento cercano, apoyando en la toma de medicación y en el seguimiento diario del bienestar general."
-      },
-      {
         name: "Transporte puerta a puerta",
         description: "Ofrecemos el servicio de transporte desde el domicilio del socio hasta el Club y de regreso a casa, garantizando comodidad, puntualidad y seguridad en cada traslado."
+      },
+      {
+        name: "Seguimiento de enfermería",
+        description: "Incluido para todos nuestros socios. Nuestro equipo de enfermería realiza un acompañamiento cercano, apoyando en la toma de medicación y en el seguimiento diario del bienestar general."
       },
       {
         name: "Consulta médica",
