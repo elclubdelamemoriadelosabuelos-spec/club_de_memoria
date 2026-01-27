@@ -1,15 +1,14 @@
 "use client"
 
 import Image from "next/image"
-import { getOptimizedImagePath } from "@/lib/image-utils"
 
-const DEFAULT_IMAGE = "/club_memoria_negativo.png"
+const DEFAULT_IMAGE = "/club_memoria_negativo.webp"
 
 const getImageSrc = (image: string | undefined | null): string => {
   if (!image || image.trim() === "") {
     return DEFAULT_IMAGE
   }
-  return getOptimizedImagePath(image)
+  return image
 }
 
 interface DirectorImageProps {

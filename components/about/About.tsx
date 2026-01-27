@@ -8,14 +8,13 @@ import type { AboutProps } from "./About.types"
 import { FEATURES, ABOUT_QUOTE, getNextSlide, getPrevSlide } from "./About.helper"
 import Image from "next/image"
 import { UnderlineWave } from "@/components/ui/underline-wave"
-import { useLazyVideo, useSlowConnection } from "@/hooks/use-lazy-video"
+import { useLazyVideo } from "@/hooks/use-lazy-video"
 
 export function About({ className }: AboutProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(false)
   const [videoLoaded, setVideoLoaded] = useState(false)
   const { videoRef, shouldLoad } = useLazyVideo({ rootMargin: "100px" })
-  const isSlowConnection = useSlowConnection()
 
   const nextSlide = () => {
     setCurrentSlide(getNextSlide(currentSlide, FEATURES.length))
@@ -25,38 +24,25 @@ export function About({ className }: AboutProps) {
     setCurrentSlide(getPrevSlide(currentSlide, FEATURES.length))
   }
 
-  // Cargar el video cuando esté visible (pero no reproducir hasta que el usuario haga click)
   useEffect(() => {
     const video = videoRef.current
-    if (!video || !shouldLoad || videoLoaded || isSlowConnection) return
+    if (!video || !shouldLoad) return
 
-    // Solo preparar el source, pero no cargar hasta que el usuario haga click
-    // Esto optimiza el ancho de banda
     if (video.children.length === 0) {
       const sourceWebm = document.createElement('source')
       sourceWebm.src = '/about_video.webm'
       sourceWebm.type = 'video/webm'
       video.appendChild(sourceWebm)
+      video.load()
+      setVideoLoaded(true)
     }
-  }, [shouldLoad, videoLoaded, isSlowConnection])
+  }, [shouldLoad])
 
   const handlePlay = () => {
     const video = videoRef.current
     if (!video) return
 
-    // Si no está cargado y no es conexión lenta, cargar ahora
-    if (!videoLoaded && !isSlowConnection) {
-      if (video.children.length === 0) {
-        const sourceWebm = document.createElement('source')
-        sourceWebm.src = '/about_video.webm'
-        sourceWebm.type = 'video/webm'
-        video.appendChild(sourceWebm)
-      }
-      video.load()
-      setVideoLoaded(true)
-    }
-
-    // Reproducir video
+    // Reproducir video (ya debería estar cargado)
     video.play()
       .then(() => setIsPlaying(true))
       .catch((error) => {
@@ -140,10 +126,12 @@ export function About({ className }: AboutProps) {
 
               <div className="flex gap-2 sm:gap-2.5">
                 {FEATURES.map((_, index) => (
-                  <button
+                  <Button
                     key={index}
+                    variant="ghost"
+                    size="icon"
                     onClick={() => setCurrentSlide(index)}
-                    className={`h-2.5 sm:h-3 rounded-full transition-all duration-300 ${currentSlide === index
+                    className={`h-2.5 sm:h-3 rounded-full transition-all duration-300 p-0 ${currentSlide === index
                       ? "bg-primary w-8 sm:w-10 shadow-lg shadow-primary/50"
                       : "bg-border/60 w-2.5 sm:w-3 hover:bg-[#F87229]/50"
                     }`}
@@ -165,10 +153,25 @@ export function About({ className }: AboutProps) {
 
           <div className="relative order-1 lg:order-2 w-full min-w-0">
             <div className="relative aspect-4/3 sm:aspect-video rounded-2xl sm:rounded-3xl overflow-hidden bg-muted border-2 border-border shadow-xl group">
+              {/* Imagen de fondo mientras el video no se reproduce */}
+              {!isPlaying && (
+                <div className="absolute inset-0 z-0">
+                  <Image
+                    src="/hero_image.webp"
+                    alt="Club de la Memoria"
+                    fill
+                    className="object-cover"
+                    quality={85}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-tr from-primary/40 via-primary/20 to-accent/30" />
+                </div>
+              )}
+              
               <video
                 ref={videoRef}
-                preload="none"
-                className="w-full h-full object-cover"
+                preload={shouldLoad ? "metadata" : "none"}
+                className="w-full h-full object-cover relative z-1"
                 controls={isPlaying}
                 playsInline
                 muted={false}
@@ -179,14 +182,14 @@ export function About({ className }: AboutProps) {
                 controlsList="nodownload"
                 aria-label="Video sobre el Club de la Memoria"
               >
-                {shouldLoad && !isSlowConnection && videoLoaded && (
+                {shouldLoad && (
                   <source src="/about_video.webm" type="video/webm" />
                 )}
               </video>
               
               {!isPlaying && (
                 <div 
-                  className="absolute inset-0 flex items-center justify-center bg-black/20 cursor-pointer transition-opacity group-hover:bg-black/30 z-10"
+                  className="absolute inset-0 flex items-center justify-center cursor-pointer transition-opacity group-hover:opacity-90 z-20"
                   onClick={handlePlay}
                 >
                   <div className="text-center px-4">
@@ -203,7 +206,6 @@ export function About({ className }: AboutProps) {
                   </div>
                 </div>
               )}
-              <div className="absolute inset-0 bg-linear-to-tr from-primary/10 via-transparent to-accent/10 pointer-events-none" />
             </div>
           </div>
         </div>

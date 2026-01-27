@@ -6,37 +6,56 @@ import { Button } from "@/components/ui/button"
 import type { VideoHeroProps } from "./VideoHero.types"
 import { VIDEO_CONFIG, HERO_CONTENT, scrollToNextSection } from "./VideoHero.helper"
 import { SECTIONS } from "@/lib/constants"
-import { useLazyVideo, useSlowConnection } from "@/hooks/use-lazy-video"
+import { useLazyVideo } from "@/hooks/use-lazy-video"
 
 export function VideoHero({ className }: VideoHeroProps) {
   const { videoRef, shouldLoad } = useLazyVideo({ rootMargin: "200px" })
-  const isSlowConnection = useSlowConnection()
 
   useEffect(() => {
     const video = videoRef.current
-    if (!video || !shouldLoad || isSlowConnection) return
+    if (!video || !shouldLoad) return
 
     if (video.readyState === 0) {
       video.load()
     }
 
-    const handleCanPlay = () => {
-      const playPromise = video.play()
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-        })
+    const attemptPlay = async () => {
+      try {
+        video.muted = true
+        
+        await video.play()
+      } catch (error) {
+        const handleUserInteraction = async () => {
+          try {
+            video.muted = true
+            await video.play()
+          } catch (e) {
+          }
+          document.removeEventListener('touchstart', handleUserInteraction)
+          document.removeEventListener('click', handleUserInteraction)
+        }
+        
+        document.addEventListener('touchstart', handleUserInteraction, { once: true, passive: true })
+        document.addEventListener('click', handleUserInteraction, { once: true })
       }
     }
-    if (video.readyState >= 2) {
-      handleCanPlay()
-    } else {
-      video.addEventListener("canplay", handleCanPlay, { once: true })
-    }
 
-    return () => {
-      video.removeEventListener("canplay", handleCanPlay)
+    // Intentar reproducir cuando el video esté listo
+    if (video.readyState >= 2) {
+      attemptPlay()
+    } else {
+      const handleCanPlay = () => {
+        attemptPlay()
+      }
+      video.addEventListener("canplay", handleCanPlay, { once: true })
+      video.addEventListener("loadeddata", handleCanPlay, { once: true })
+      
+      return () => {
+        video.removeEventListener("canplay", handleCanPlay)
+        video.removeEventListener("loadeddata", handleCanPlay)
+      }
     }
-  }, [shouldLoad, isSlowConnection, videoRef])
+  }, [shouldLoad, videoRef])
 
   return (
     <section id={SECTIONS.videoHero} className={`relative w-full overflow-hidden md:h-screen pt-20 md:pt-0 ${className ?? ""}`}>
@@ -47,13 +66,15 @@ export function VideoHero({ className }: VideoHeroProps) {
           muted
           loop
           playsInline
-          preload={shouldLoad && !isSlowConnection ? "metadata" : "none"}
+          preload={shouldLoad ? "auto" : "none"}
           className="absolute inset-0 w-full h-full object-cover z-0"
           disablePictureInPicture
           disableRemotePlayback
+          webkit-playsinline="true"
+          x5-playsinline="true"
           aria-label="Video de presentación del Club de la Memoria"
         >
-          {shouldLoad && !isSlowConnection && (
+          {shouldLoad && (
             <source src={VIDEO_CONFIG.webm} type="video/webm" />
           )}
         </video>

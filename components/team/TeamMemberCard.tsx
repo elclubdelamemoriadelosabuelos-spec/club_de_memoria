@@ -3,15 +3,14 @@
 import Image from "next/image"
 import { useState } from "react"
 import type { TeamMember } from "./Team.types"
-import { getOptimizedImagePath } from "@/lib/image-utils"
 
-const DEFAULT_IMAGE = "/club_memoria_negativo.png"
+const DEFAULT_IMAGE = "/club_memoria_negativo.webp"
 
 const getImageSrc = (image: string | undefined | null): string => {
   if (!image || image.trim() === "") {
     return DEFAULT_IMAGE
   }
-  return getOptimizedImagePath(image)
+  return image
 }
 
 interface TeamMemberCardProps {
@@ -24,9 +23,18 @@ interface TeamMemberCardProps {
  */
 export function TeamMemberCard({ member, index }: TeamMemberCardProps) {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [imageError, setImageError] = useState(false)
+  const [imageSrc, setImageSrc] = useState(() => getImageSrc(member.image))
 
   const handleClick = () => {
     setIsExpanded(!isExpanded)
+  }
+
+  const handleImageError = () => {
+    if (!imageError && !imageSrc.includes('club_memoria_negativo')) {
+      setImageError(true)
+      setImageSrc(DEFAULT_IMAGE)
+    }
   }
 
   return (
@@ -36,19 +44,13 @@ export function TeamMemberCard({ member, index }: TeamMemberCardProps) {
     >
       <div className="relative w-32 h-32 md:w-44 md:h-44 mb-4 rounded-full overflow-hidden border-4 border-muted group-hover:border-primary transition-colors duration-300">
         <Image
-          src={getImageSrc(member.image)}
+          src={imageSrc}
           alt={member.name}
           fill
           className="object-cover group-hover:scale-110 transition-transform duration-500"
           loading={index < 6 ? "eager" : "lazy"}
           decoding={index < 6 ? "sync" : "async"}
-          onError={(e) => {
-            const target = e.target as HTMLImageElement
-            const currentSrc = target.src
-            if (!currentSrc.includes('club_memoria_negativo')) {
-              target.src = DEFAULT_IMAGE
-            }
-          }}
+          onError={handleImageError}
         />
       </div>
 

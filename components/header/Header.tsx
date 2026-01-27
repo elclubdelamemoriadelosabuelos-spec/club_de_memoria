@@ -38,13 +38,14 @@ export function Header({ className }: HeaderProps) {
 
           <nav className="hidden md:flex items-center gap-6">
             {NAV_ITEMS.map((item) => (
-              <button
+              <Button
                 key={item.sectionId}
+                variant="ghost"
                 onClick={() => handleNavClick(item.sectionId)}
-                className="text-base font-medium text-foreground hover:text-primary transition-colors"
+                className="text-base font-medium text-foreground hover:text-primary hover:bg-transparent transition-colors"
               >
                 {item.label}
-              </button>
+              </Button>
             ))}
             <Button
               onClick={() => handleNavClick(CTA_BUTTON.sectionId)}
@@ -56,21 +57,28 @@ export function Header({ className }: HeaderProps) {
           </nav>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2" aria-label="Toggle menu">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden"
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
-          </button>
+          </Button>
         </div>
 
         {isOpen && (
           <nav className="md:hidden pt-4 pb-2 flex flex-col gap-3">
             {NAV_ITEMS.map((item) => (
-              <button
+              <Button
                 key={item.sectionId}
+                variant="ghost"
                 onClick={() => handleNavClick(item.sectionId)}
-                className="text-left text-base font-medium text-foreground hover:text-primary transition-colors py-2"
+                className="text-left text-base font-medium text-foreground hover:text-primary hover:bg-transparent transition-colors py-2 justify-start"
               >
                 {item.label}
-              </button>
+              </Button>
             ))}
             <Button
               onClick={() => handleNavClick(CTA_BUTTON.sectionId)}

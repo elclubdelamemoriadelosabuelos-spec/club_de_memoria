@@ -10,7 +10,6 @@ import {
   toggleVideoPlay,
   toggleVideoMute
 } from "./VideoTestimonials.helper"
-import { useSlowConnection } from "@/hooks/use-lazy-video"
 import { scrollToContact } from "../hero/Hero.helper"
 import { Button } from "../ui/button"
 
@@ -19,7 +18,6 @@ export function VideoTestimonials({ className }: VideoTestimonialsProps) {
   const [mutedVideos, setMutedVideos] = useState<MutedState>(INITIAL_MUTED_STATE)
   const [loadedVideos, setLoadedVideos] = useState<Set<number>>(new Set())
   const videoRefs = useRef<VideoRefs>({})
-  const isSlowConnection = useSlowConnection()
 
   const handleTogglePlay = (index: number) => {
     const newPlayingVideo = toggleVideoPlay(videoRefs.current, playingVideo, index)
@@ -36,7 +34,7 @@ export function VideoTestimonials({ className }: VideoTestimonialsProps) {
   }
 
   const handleVideoIntersect = (index: number, entry: IntersectionObserverEntry) => {
-    if (entry.isIntersecting && !loadedVideos.has(index) && !isSlowConnection) {
+    if (entry.isIntersecting && !loadedVideos.has(index)) {
       const video = videoRefs.current[index]
       if (video) {
         video.load()
@@ -111,20 +109,20 @@ export function VideoTestimonials({ className }: VideoTestimonialsProps) {
                 <div className="relative aspect-[9/16] md:aspect-[9/14] rounded-2xl overflow-hidden bg-black">
                   <video
                     ref={(el) => { videoRefs.current[index] = el }}
-                    preload={isSlowConnection ? "none" : loadedVideos.has(index) ? "metadata" : "none"}
+                    preload={loadedVideos.has(index) ? "metadata" : "none"}
                     className="w-full h-full object-cover"
                     playsInline
                     muted={mutedVideos[index]}
                     onEnded={handleVideoEnd}
                     loop={false}
                   >
-                    {loadedVideos.has(index) && !isSlowConnection && (
+                    {loadedVideos.has(index) && (
                       <source src={video.webm} type="video/webm" />
                     )}
                   </video>
 
                   {/* Overlay gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/20 pointer-events-none" />
 
                   {/* Play/Pause button */}
                   <button

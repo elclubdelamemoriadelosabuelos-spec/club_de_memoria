@@ -138,6 +138,19 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Preload recursos críticos */}
+        <link
+          rel="preload"
+          href="/video-hero.webm"
+          as="video"
+          type="video/webm"
+        />
+        <link
+          rel="preload"
+          href="/hero_image.webp"
+          as="image"
+          type="image/webp"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -150,8 +163,8 @@ export default function RootLayout({
               description:
                 "El primer club de adultos mayores en Quito desde 2004. Ofrecemos bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo con atención centrada en la persona.",
               url: "https://clubdelamemoria.com",
-              logo: "https://clubdelamemoria.com/logo_club_memoria.png",
-              image: "https://clubdelamemoria.com/logo_club_memoria.png",
+              logo: "https://clubdelamemoria.com/logo_club_memoria.webp",
+              image: "https://clubdelamemoria.com/logo_club_memoria.webp",
               foundingDate: "2004",
               priceRange: "$$",
               address: {

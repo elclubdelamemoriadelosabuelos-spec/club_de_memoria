@@ -9,7 +9,7 @@
 export const COMPANY = {
   name: "Club de la Memoria",
   description: "El primer club de adultos mayores activos de Quito. Creando bienestar, propósito y comunidad desde 2004.",
-  logo: "/logo_club_memoria.png",
+  logo: "/logo_club_memoria.webp",
   foundedYear: 2004,
   location: "José Prta N39-164, Quito-Ecuador",
   locationUrl: "https://maps.app.goo.gl/JZaoAsgJLUtvN9VU6?g_st=ic",
