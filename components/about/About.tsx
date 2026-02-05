@@ -163,6 +163,7 @@ export function About({ className }: AboutProps) {
                     className="object-cover"
                     quality={85}
                     sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized
                   />
                   <div className="absolute inset-0 bg-linear-to-tr from-primary/40 via-primary/20 to-accent/30" />
                 </div>

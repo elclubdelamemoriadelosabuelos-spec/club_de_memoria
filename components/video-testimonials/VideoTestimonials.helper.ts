@@ -14,12 +14,17 @@ export const TESTIMONIAL_VIDEOS: TestimonialVideo[] = [
     name: "Testimonio familiar",
     quote: "La dedicación y el cariño del equipo se nota en cada detalle. Recomendamos el Club con todo el corazón.",
   },
+  {
+    webm: "/testimonials/testimonio_3.webm",
+    name: "Testimonio",
+    quote: "Yo desde el primer dia que llegue me siento muy bien y de ahi aca me siento muy bien.",
+  },
 ]
 
 /**
- * Initial muted state for videos
+ * Initial muted state for videos (los 3 visibles en la misma vista)
  */
-export const INITIAL_MUTED_STATE: MutedState = { 0: true, 1: true }
+export const INITIAL_MUTED_STATE: MutedState = { 0: true, 1: true, 2: true }
 
 /**
  * Toggle play state for a video

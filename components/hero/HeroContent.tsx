@@ -41,6 +41,7 @@ export function HeroContent({ className }: HeroProps) {
                 priority
                 quality={85}
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                unoptimized
               />
             </div>
             <div className="absolute -bottom-8 -left-8 bg-secondary text-secondary-foreground rounded-2xl p-6 shadow-xl max-w-[350px]">

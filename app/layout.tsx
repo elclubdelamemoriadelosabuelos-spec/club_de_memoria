@@ -74,10 +74,10 @@ export const metadata: Metadata = {
       "Primer club de adultos mayores en Quito desde 2004. Bienestar integral con actividades físicas, cognitivas y creativas. Programa de día completo.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/hero_image.webp",
         width: 1200,
         height: 630,
-        alt: "Club de la Memoria - Adultos mayoredisfrutando actividades en Quito",
+        alt: "Club de la Memoria - Adultos mayores disfrutando actividades en Quito",
       },
     ],
   },
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     title: "Club de la Memoria | Adultos Mayores Quito",
     description:
       "Primer club de adultos mayores en Quito desde 2004. Actividades físicas, cognitivas y creativas.",
-    images: ["/og-image.jpg"],
+    images: ["/hero_image.webp"],
     creator: "@clubdelamemoria",
   },
   alternates: {
