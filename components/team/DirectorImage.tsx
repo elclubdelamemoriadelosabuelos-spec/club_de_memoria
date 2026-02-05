@@ -28,6 +28,7 @@ export function DirectorImage({ src, alt }: DirectorImageProps) {
       className="object-cover"
       loading="eager"
       priority
+      unoptimized
       onError={(e) => {
         const target = e.target as HTMLImageElement
         const currentSrc = target.src

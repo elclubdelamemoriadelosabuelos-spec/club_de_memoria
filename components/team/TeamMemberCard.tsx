@@ -51,6 +51,7 @@ export function TeamMemberCard({ member, index }: TeamMemberCardProps) {
           loading={index < 6 ? "eager" : "lazy"}
           decoding={index < 6 ? "sync" : "async"}
           onError={handleImageError}
+          unoptimized
         />
       </div>
 
