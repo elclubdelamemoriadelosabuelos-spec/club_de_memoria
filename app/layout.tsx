@@ -92,15 +92,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://clubdelamemoria.com",
   },
-  generator: "v0.app",
   icons: {
     icon: [
-      { url: "/clubmemoria/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/clubmemoria/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
       { url: "/clubmemoria/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/clubmemoria/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/clubmemoria/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/clubmemoria/android-icon-192x192.png", sizes: "192x192", type: "image/png" },
     ],
-    shortcut: "/clubmemoria/favicon.ico",
+    shortcut: "/favicon.ico",
     apple: [
       { url: "/clubmemoria/apple-icon-57x57.png", sizes: "57x57" },
       { url: "/clubmemoria/apple-icon-60x60.png", sizes: "60x60" },
