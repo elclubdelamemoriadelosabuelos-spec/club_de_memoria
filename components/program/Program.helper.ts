@@ -25,8 +25,7 @@ export const SCHEDULE: ScheduleItem[] = [
     ],
     footer: "Comenzamos el día activando la mente y el cuerpo, siempre en grupo y acompañados.",
     images: [
-      "/galeria/mananas_activas/mananas_activas1.webp",
-      "/galeria/mananas_activas/mananas_activas2.webp",
+      "/galeria/mananas_activas/mananas_activas1.webp", 
       "/galeria/mananas_activas/mananas_activas3.webp",
       "/galeria/mananas_activas/mananas_activas4.webp",
       "/galeria/mananas_activas/mananas_activas5.webp",
