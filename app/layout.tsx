@@ -2,7 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Lato, Open_Sans } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { ElfsightScript } from "@/components/elfsight-script/ElfsightScript"
+import { GOOGLE_REVIEWS_DATA } from "@/lib/google-reviews-data"
 import "./globals.css"
 
 const lato = Lato({
@@ -216,8 +216,8 @@ export default function RootLayout({
               ],
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: "5",
-                reviewCount: "50",
+                ratingValue: String(GOOGLE_REVIEWS_DATA.averageRating),
+                reviewCount: String(GOOGLE_REVIEWS_DATA.totalReviews),
                 bestRating: "5",
                 worstRating: "1",
               },
@@ -366,7 +366,6 @@ export default function RootLayout({
       <body className={`${lato.variable} ${openSans.variable} font-sans antialiased`} style={{ fontFamily: 'var(--font-lato), var(--font-open-sans), system-ui, sans-serif' }}>
         {children}
         <Analytics />
-        <ElfsightScript />
       </body>
     </html>
   )
